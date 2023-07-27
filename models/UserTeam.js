@@ -10,10 +10,14 @@ const userTeamSchema = new mongoose.Schema({
         required: true,
         ref: 'User'
     },
-    current_point:{
+    user_team: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Players_Fantasy'
+    }],
+    total_point:{
         type: Number,
         required: true
-    }
+    },
 })
 
 module.exports = mongoose.model('User_Team', userTeamSchema)
