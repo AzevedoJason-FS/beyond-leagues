@@ -27,6 +27,13 @@ app.use("/", express.static(path.join(__dirname, "public")));
 
 app.use("/", require("./routes/root"));
 app.use('/users', require('./routes/userRoutes'))
+app.use('/roles', require('./routes/rolesRoutes'))
+app.use('/my-bets', require('./routes/userBetRoutes'))
+app.use('/leagues', require('./routes/leagueRoutes'))
+app.use('/matches', require('./routes/matchesRoutes'))
+app.use('/teams', require('./routes/teamRoutes'))
+app.use('/fantasy-players', require('./routes/fantasyPlayerRoutes'))
+app.use('/auth', require('./routes/authRoutes'))
 
 app.all("*", (req, res) => {
   res.status(404);

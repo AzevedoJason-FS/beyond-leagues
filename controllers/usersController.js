@@ -1,5 +1,4 @@
 const User = require('../models/User')
-const UserTeam = require('../models/UserTeam')
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcrypt')
 
@@ -83,7 +82,7 @@ const updateUser = asyncHandler(async (req,res) => {
 
     const updatedUser = await User.save()
     
-    res.json({ message: `${updateUser.username} updated` })
+    res.json({ message: `${updatedUser.username} updated` })
 })
 
 // @desc DELETE a user
@@ -96,7 +95,7 @@ const deleteUser = asyncHandler(async (req,res) => {
         return res.status(400).json({ message: 'User ID Required' })
     }
 
-    const user = await findById(id).exec()
+    const user = await User.findById(id).exec()
 
     if(!user) {
         return res.status(400).json({ message: 'User Not Found' })

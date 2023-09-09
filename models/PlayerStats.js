@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
 
 const playerStatsSchema = new mongoose.Schema({
+    match_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Fantasy_Matches'
+    },
     player_id: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -20,10 +25,6 @@ const playerStatsSchema = new mongoose.Schema({
     },
     points:{
         type: Number,
-        required: true
-    },
-    match_date:{
-        type: Date,
         required: true
     },
 })

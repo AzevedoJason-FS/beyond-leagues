@@ -24,7 +24,14 @@ const userSchema = new mongoose.Schema({
     country: {
         type: String,
         required: true
-    }
+    },
+    money: {
+        type: String,
+    },
+    bets:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User_Bets'
+    }]
 })
 
 module.exports = mongoose.model('User', userSchema)

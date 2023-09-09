@@ -1,24 +1,27 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const userPointsSchema = new mongoose.Schema({
-    user_id:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
-    },
-    match_date:{
-        type: Date,
-        required: true
-    },
-    used_team:[{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
-    }],
-    points:{
-        type: Number,
-        required: true
-    }
-})
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User",
+  },
+  bet: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Players_Fantasy",
+  },
+  chosen_odd: {
+    type: Number
+  },
+  winning_odd: {
+    type: Number
+  },
+  win_amount: {
+    type: String,
+  },
+  new_balance: {
+    type: String,
+  },
+});
 
-module.exports = mongoose.model('User_Daily_Points', userPointsSchema)
+module.exports = mongoose.model("User_Bets", userPointsSchema);
